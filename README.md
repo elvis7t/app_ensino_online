@@ -3,7 +3,7 @@
 Para a configuração do ambiente favor seguir os passos abaixo:
 
 1 ° rodar o comando docker-compose up -d
-2 ° rodar o comando docker 8nstall
+2 ° rodar o comando docker-compose exec web docker-php-ext-install mysqli
 3 ° reinicie os container
 4 ° acesse o phpmyadmin logue com 
 5 ° abra o arquivo script.sql na pasta db copie e cole
