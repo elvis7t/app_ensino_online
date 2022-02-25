@@ -529,7 +529,7 @@ $dados = array();
 				JOIN sys_aluno c ON a.mat_aluId = c.alu_id
 				WHERE mat_curId =".$sel_curso;				
 			$rs->FreeSql($sql);
-			 if($rs->linhas>10){
+			 if($rs->linhas>=10){
 			 	$resul['status'] = "Erro";
 			 	$resul['status'] = "Esse curso já esta com 10 alunos";  
 			 	$resul['mensagem'] = $rs->sql;  
