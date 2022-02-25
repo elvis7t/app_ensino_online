@@ -37,7 +37,7 @@ CREATE TABLE `sys_aluno` (
 --
 
 INSERT INTO `sys_aluno` (`alu_id`, `alu_nome`, `alu_email`, `alu_data_nasc`, `alu_status`) VALUES
-(1, 'Aluno 1', 'aluno1@gmail.com', '2000-02-25', 1),
+(1, 'Aluno 1', 'aluno1@gmail.com', '2000-02-25', 0),
 (2, 'Aluno 2 ', 'aluno2@gmail.com', '1990-03-13', 1),
 (3, 'Aluno 3', 'aluno3@gmail.com', '1999-12-24', 1),
 (4, 'Aluno 4', 'aluno4@gmail.com', '1995-05-01', 1),
@@ -198,29 +198,6 @@ CREATE TABLE `sys_logado` (
   `log_status` enum('1','0') DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Tabela para Logados';
 
---
--- Extraindo dados da tabela `sys_logado`
---
-
-INSERT INTO `sys_logado` (`log_id`, `log_user`, `log_classe`, `log_token`, `log_horario`, `log_expira`, `log_status`) VALUES
-(1, 'admin@infraprime.com', 1, 'e0038092843760c2b11d2b4c8456103b', '2022-01-12 19:37:36', '2022-01-12 20:37:36', '0'),
-(2, 'cmprado@infraprime.com', 3, '60f987a70778ed39f0f2b35dc20a910a', '2022-01-12 21:02:29', '2022-01-12 22:02:29', '0'),
-(3, 'admin@infraprime.com', 1, '2f83040ed5b54a97d914dc15b4d20fdc', '2022-01-13 11:35:57', '2022-01-13 12:35:57', '0'),
-(4, 'cmprado@infraprime.com', 3, '53152d5be31b6792ecdeb6ffb377a683', '2022-01-13 11:36:25', '2022-01-13 12:36:25', '0'),
-(5, 'admin@infraprime.com', 1, '185fb58dfe6a886633a4b3f9b130b718', '2022-01-13 11:36:33', '2022-01-13 12:36:33', '0'),
-(6, 'cmprado@infraprime.com', 3, '2e5dc38d3a19ffedcaedfc8c46732b02', '2022-01-13 11:36:59', '2022-01-13 12:36:59', '0'),
-(7, 'admin@infraprime.com', 1, 'd89da521d3273370bbab483f633b0b71', '2022-01-13 11:40:02', '2022-01-13 12:40:02', '1'),
-(8, 'admin@infraprime.com', 1, 'da32c4d435c5ca124ec02287dfbfaece', '2022-02-23 21:53:26', '2022-02-23 22:53:26', '1'),
-(9, 'admin@infraprime.com', 1, 'f614a4fa41a7f3acb6677a9d904f9d30', '2022-02-23 21:56:35', '2022-02-23 22:56:35', '0'),
-(10, 'admin@infraprime.com', 1, 'b49dfd10316745a469d3fcbf455a03c0', '2022-02-23 22:20:26', '2022-02-23 23:20:26', '1'),
-(11, 'admin@infraprime.com', 1, 'f9c4fda42e3353de22aecfb906398147', '2022-02-23 22:32:38', '2022-02-23 23:32:38', '0'),
-(12, 'admin@infraprime.com', 1, 'bff8f37268b1d788832da15d70f20816', '2022-02-23 22:32:43', '2022-02-23 23:32:43', '0'),
-(13, 'admin@infraprime.com', 1, 'a592c2cf586b97f0d571eaa805ed3957', '2022-02-23 22:38:16', '2022-02-23 23:38:16', '0'),
-(14, 'admin@infraprime.com', 1, '653c70924af077ed4b381441835f8d84', '2022-02-23 22:53:13', '2022-02-23 23:53:13', '0'),
-(15, 'admin@infraprime.com', 1, 'ac5997ae8da4e2633fbb44a0a09243b0', '2022-02-23 22:54:01', '2022-02-23 23:54:01', '1'),
-(16, 'admin@ensino.online.com', 1, '51dbdfe8f9f6b78f4b434fa2de8902f3', '2022-02-25 08:43:48', '2022-02-25 09:43:48', '1');
-
--- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `sys_matricula`
