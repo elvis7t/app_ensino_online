@@ -42,7 +42,7 @@ require_once("../config/modals.php");
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
-							<table id="tp" class="table table-bordered table-striped">
+							<table id="curso" class="table table-bordered table-striped">
 								<thead>
 									<tr>
 										<th>ID:</th>										
@@ -92,7 +92,7 @@ require_once("../config/modals.php");
 <!-- page script -->
 <script>
   $(function () {
-    $("#tp").DataTable({
+    $("#curso").DataTable({
 		"columnDefs": [{
 		"defaultContent": "-",
 		"targets": "_all"

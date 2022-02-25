@@ -39,7 +39,7 @@ $rs = new recordset();
 			<div class="container-fluid">
 				<div class="card card-secondary card-outline">
 					<div class="card-header">					
-						<h3 class="card-title">Empresa</h3>
+						<h3 class="card-title">Matricula</h3>
 						<div class="card-tools">
 							<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
 							<button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-remove"></i></button>
@@ -47,17 +47,17 @@ $rs = new recordset();
 					</div>
 					<!-- /.card-header -->
 					<div class="card-body">
-						<form role="form" id="FormCadEq">  
+						<form role="form" id="FormCadMatricula">  
 							<div class="row">					    
 								<!-- /.col --> 
 								<div class="col-sm-5">
 									<div class="form-group">
-									  <label for="emp_nome">Selecione a o Curso:</label>
+									  <label for="emp_nome">Selecione o Curso:</label>
 										<div class="input-group">
 											<div class="input-group-prepend">
 											  <span class="input-group-text"><i class="fas fa-book-open"></i></span>
 											</div>											
-											<select class="form-control select2bs4" id="sel_empeq" name="sel_empeq"/>    
+											<select class="form-control select2bs4" id="sel_curso" name="sel_curso"/>    
 												<option value="">Selecione:</option>
 												<?php
 												$whr = "cur_data_ini >= NOW() OR cur_data_fin > NOW()";
@@ -81,7 +81,7 @@ $rs = new recordset();
 											<div class="input-group-prepend">
 											  <span class="input-group-text"><i class="fas fa-user-graduate"></i></span>
 											</div>
-											<select class="form-control select2bs4" id="sel_tipoeq" name="sel_tipoeq"/>    
+											<select class="form-control select2bs4" id="sel_aluno" name="sel_aluno"/>    
 												<option value="">Selecione:</option>
 												<?php
 												$whr = "alu_status ='1'";
@@ -97,8 +97,7 @@ $rs = new recordset();
 									</div>
 									<!-- /.form-group -->
 								</div>	
-								<!-- /.col --> 
-																             
+								<!-- /.col --> 																             
 							</div>
 							<!-- /.row -->
 														
@@ -126,7 +125,7 @@ $rs = new recordset();
 					<!-- /.card-body -->
 					
 					<div class="card-footer">					
-						<button type="button" id="btn_CadEq" class="btn btn-info btn-sm" type="submit"><i class="fas fa-save"></i> Salvar</button>
+						<button type="button" id="btn_CadMatricula" class="btn btn-info btn-sm" type="submit"><i class="fas fa-save"></i> Salvar</button>
 						<a href="javascript:history.go(-1);" class="btn btn-sm btn-secondary"><i class="fas fa-hand-point-left"></i> Voltar</a>							
 					</div>
 				</div>

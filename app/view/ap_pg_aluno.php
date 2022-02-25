@@ -92,7 +92,7 @@ require_once("../config/modals.php");
 <!-- page script -->
 <script>
   $(function () {
-    $("#marca").DataTable({
+    $("#aluno").DataTable({
 		"columnDefs": [{
 		"defaultContent": "-",
 		"targets": "_all"

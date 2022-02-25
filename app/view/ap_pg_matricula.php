@@ -43,7 +43,7 @@ $fn = new functions();
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
-							<table id="equipamento" class="table table-bordered table-striped">
+							<table id="matricula" class="table table-bordered table-striped">
 								<thead>
 									<tr>
 										<th>Id:</th>
@@ -96,7 +96,7 @@ $fn = new functions();
 <!-- page script -->
 <script>
   $(function () {
-    $("#equipamento").DataTable({
+    $("#matricula").DataTable({
 		"columnDefs": [{
 		"defaultContent": "-",
 		"targets": "_all"

@@ -771,7 +771,7 @@ $(document).ready(function(){
 /*---------------|FIM DE EDITAR Aluno|------------------*/
 
 //|----------------------------------------------------------------\
-//////////////// FIM TIPO DE Aluno\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+///////////////////// FIM DE ALUNO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //|----------------------------------------------------------------/	
 
 //------------------------------------------------------------------------------------------------------------
@@ -782,34 +782,22 @@ $(document).ready(function(){
 	|												   				|
 	\--------------------------------------------------------------*/ 
 	
-	$(document.body).on("click","#btn_CadEq", function(){
+	$(document.body).on("click","#btn_CadMatricula", function(){
         var container = $("#formerros"); 
-		$("#FormCadEq").validate({
+		$("#FormCadMatricula").validate({
 			debug: true,
 			errorClass: "error",
 			errorContainer: container,
 			errorLabelContainer: $("ol", container),
    			wrapper: 'li',
 			rules: {
-				sel_empeq  : {required: true},
-                sel_tipoeq : {required: true},
-                sel_marcaeq: {required: true},
-                eq_modelo  : {required: true, minlength: 2},
-                eq_serial  : {required: true, minlength: 5},
-                eq_desc    : {required: true, minlength: 3},
-                sel_eqstatus  : {required: true},
-                eq_valor   : {required: true}
+				sel_curso  : {required: true},
+                sel_aluno : {required: true}
                 
 			}, 
 			messages:{
-				sel_empeq   : {required: "Selecione uma Empresa"}, 
-                sel_tipoeq  : {required: "Selecione um Tipo"},
-                sel_marcaeq : {required: "Selecione uma Marca"},
-                eq_modelo   : {required: "Desc. o Modelo", minlength: "M&iacute;nimo de 2 caracteres."},
-                eq_serial   : {required: "Desc. o serial", minlength: "M&iacute;nimo de 5 caracteres."},
-                eq_desc	    : {required: "Des. o equipamento", minlength: "M&iacute;nimo de 3 caracteres."},
-                sel_eqstatus   : {required: "Selecione o Status"},
-                eq_valor    : {required: "Desc. o Valor R$"}
+				sel_curso   : {required: "Selecione uma Curso"}, 
+                sel_aluno   : {required: "Selecione um Aluno"}
             				
 			},
 	            errorElement: 'span',
@@ -824,64 +812,52 @@ $(document).ready(function(){
 				$(element).removeClass('is-invalid');
 				}
 			});
-		if($("#FormCadEq").valid()==true){ 
-			$("#btn_CadEq").html("<i class='fas fa-spin fa-spinner'></i> Processando...");
+		if($("#FormCadMatricula").valid()==true){ 
+			$("#btn_CadMatricula").html("<i class='fas fa-spin fa-spinner'></i> Processando...");
 			$.post("../controller/sys_record_data.php",
 				{  
-				acao:			"Cadastrar_Equipamento",  
-				sel_empeq:		$("#sel_empeq").val(), 
-			    sel_tipoeq:	   	$("#sel_tipoeq").val(), 
-			    sel_marcaeq:   	$("#sel_marcaeq").val(),  
-			    eq_modelo:    	$("#eq_modelo").val(), 
-			    eq_serial:    	$("#eq_serial").val(), 
-			    eq_desc:	   	$("#eq_desc").val(),  
-			    sel_eqstatus:	$("#sel_eqstatus").val(),
-			    eq_valor:	   	$("#eq_valor").val()
+				acao:			"Cadastrar_Matricula",  
+				sel_curso:		$("#sel_curso").val(), 
+			    sel_aluno:	   	$("#sel_aluno").val()
 							 
 				},function(data){
 					if (data.status == "OK") {
 						$("<div></div>").addClass("alert alert-success alert-dismissable").html('<i class="fas fa-check"></i> ('+data.mensagem+') <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>').appendTo("#mens");
-						$("#FormCadEq")[0].reset();
+						$("#FormCadMatricula")[0].reset();
 						console.log(data.query);
 						// $("#eq_cad").load("at_tbEquipamentos.php");// atualiza a pagina com o campo inserido 
 		 			}
 					else { 
-						$("<div></div>").addClass("alert alert-warning alert-dismissable").html('<i class="fas fa-exclamation-triangle""></i> Serial j&aacute; cadastrado <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>').appendTo("#mens");
+						$("<div></div>").addClass("alert alert-warning alert-dismissable").html('<i class="fas fa-exclamation-triangle""></i> Esse curso já esta com 10 alunos <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>').appendTo("#mens");
 					}
-					$("#btn_CadEq").html("<i class='fas fa-plus'></i> Novo");
+					$("#btn_CadMatricula").html("<i class='fas fa-plus'></i> Novo");
 				}, "json");
 			}
 	}); 
-/*---------------|FIM DO CADASTRO DE EQUIPAMENTOS |------------------*/	
+/*---------------|FIM DO CADASTRO DE MATRICULAS |------------------*/	
 
     /*---------------|ALTERAR  EQUIPAMENTOS|-----------------------*\
-	|	Author: 	Cleber Marrara Prado							| 
-	|	E-mail: 	cleber.marrara.prado@gmail.com					|
-	|	Version:	1.0												|
-	|	Date:       31/10/2016						   				|
+	|	                     						   				|
 	\--------------------------------------------------------------*/ 
 	
-	$(document.body).on("click","#btn_EditEq", function(){        
+	$(document.body).on("click","#btn_EditMatricula", function(){        
 		console.log("CLICK OK");
 		var token = $("#token").val(); 
 		var lista = $("#lista").val();
-		cod = $("#eq_id").val(); 
+		cod = $("#mat_id").val(); 
 		
 		$.post("../controller/sys_record_data.php",{ 
-			acao: "Editar_Equipamento", 
-			eq_id: cod,
-			eq_serial: $("#eq_serial").val(),
-			eq_desc:   $("#eq_desc").val(),
-			eq_modelo: $("#eq_modelo").val(), 
-			sel_eqstatus: $("#sel_eqstatus").val(),   				     
-			eq_valor:  $("#eq_valor").val()
+			acao: "Editar_Matricula", 
+			mat_id: cod,
+			sel_curso:		$("#sel_curso").val(), 
+			sel_aluno:	   	$("#sel_aluno").val()
 			
 		},
 		function(data){
 				if(data.status=="OK"){
-					$("#btn_EditEq").html("<i class='fas fa-sync-alt'></i> Alterado");		
+					$("#btn_EditMatricula").html("<i class='fas fa-sync-alt'></i> Alterado");		
 					$("<div></div>").addClass("alert alert-info alert-dismissable").html('<i class="fas fa-check"></i> ('+data.mensagem+') <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>').appendTo("#mens");
-					$("#FormEditEq")[0].reset(); 
+					$("#FormEditMatricula")[0].reset(); 
 					console.log(data.query);
 					// $("#confirma").modal("hide");
 					// $("#aguarde").modal("show");
@@ -893,12 +869,12 @@ $(document).ready(function(){
 			},	"json");
 			
 	}); 
-/*---------------|FIM DE ALTERAR EQUIPAMENTOS|------------------*/	
+/*---------------|FIM DE ALTERAR MATRICULA|------------------*/	
 
 
 
 //-------------------------------------------------------------------------------------------------------------------------
-///////// FIM FUNÇÔES DE EQUIPAMENTO  //////////////////////////////////////////////////////////////////////////////////////////////////////||
+///////// FIM FUNÇÔES DE ENSINO //////////////////////////////////////////////////////////////////////////////////////////////////////||
 //=========================================================================================================================
 
 

@@ -509,72 +509,42 @@ $dados = array();
 		echo json_encode($resul);
 		exit;
 	}
-/*-------------------|FIM DO EDITAR MARCA |------------------------------*/	
+/*---------------|FIM DE EDITAR Aluno|------------------*/
 
 //|----------------------------------------------------------------\
-//////////////// FIM TIPO DE MARCA\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//////////////// FIM TIPO DE ALUNO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //|----------------------------------------------------------------/	
 
 //------------------------------------------------------------------------------------------------------------
-//EQUIPAMENO//////////////////////////////////////////////////////////////////////////////////////////////////
+//MATRICULA//////////////////////////////////////////////////////////////////////////////////////////////////
 //============================================================================================================
-
-	/*-----|FUNCAO PARA SELECIONAR A MARCA REF AO TIPO|--------*\
-	| Author: 	Cleber Marrara Prado 				          	|
-	| Version: 	1.0 			            					|
-	| Email: 	cleber.marrara.prado@gmail.com 			        |
-	| Date: 	16/10/2016									    |	
-	\*---------------------------------------------------------*/	
+ 
+	/*----------|FUNCAO PARA CADASTRO DE MATRICULAS|---------------\
+	|												   				|
+	\--------------------------------------------------------------*/ 
 	
-	if($acao == "populaCheckMarcaEq"){
-		$sql = "SELECT * FROM eq_marca WHERE marc_tipoId=".$id;
-		$rs->FreeSql($sql);
-		$opt = "<option value=''>Selecione...</option>";
-		while($rs->GeraDados()){
-			$opt .= "<option value='".$rs->fld('marc_id')."'>".$rs->fld('marc_nome')."</option>";
-		}
-		echo $opt;
-	}
-/*---------------|FIM DA FUNCAO "populaCheckMarcaeq |------------------*/
-
-	/*------------|FUNCAO PARA CADASTRAR EQUIPAMENTOS|--------------\
-	|	Author: 	Cleber Marrara Prado							| 
-	|	E-mail: 	cleber.marrara.prado@gmail.com					|
-	|	Version:	1.0												|
-	|	Date:       31/10/2016						   				|
-	\--------------------------------------------------------------*/
-
-	if($acao == "Cadastrar_Equipamento"){ 
-			//Busca informação no bando se o nome já exixte
-			$rs->seleciona("eq_serial","at_equipamento","eq_serial='{$eq_serial}'");
-			if($rs->linhas<>0){
-				$resul['status'] = "Erro";
-				$resul['status'] = "Nome j&aacute; cadastrado";  
-				$resul['mensagem'] = $rs->sql;  
-			}ELSE{
-			$cod = $rs->autocod("eq_id","at_equipamento");
-			$dados['eq_id']       	= $cod;		
-			$dados["eq_empId"]    	= $sel_empeq; 		
-			$dados["eq_usuEmpId"] 	= '0'; 		
-			$dados["eq_dpId"] 		= '0'; 		
-			$dados["eq_usuId"] 		= '0'; 		
-			$dados["eq_mqEmpId"]	= '0'; 		
-			$dados["eq_mqId"]		= '0'; 		
-			$dados["eq_tipoId"]   	= $sel_tipoeq;		
-			$dados["eq_marcId"]   	= $sel_marcaeq;	  	
-			$dados["eq_modelo"]   	= $eq_modelo;	  	
-			$dados["eq_serial"]   	= trim($eq_serial);		
-			$dados["eq_desc"]       = $eq_desc; 	
-			$dados["eq_statusId"]   = $sel_eqstatus;			
-			$dados["eq_valor"]    	= $eq_valor;			
-			$dados["eq_ativo"]    	= "1";			
-			$dados["eq_datacad"]  	= date('Y-m-d H:i:s');		
-			$dados["eq_usucad"]   	= $_SESSION['usu_cod']; 
+	if($acao == "Cadastrar_Matricula"){ 			
+		$sql ="SELECT 	*	FROM sys_matricula a
+				JOIN sys_curso b ON a.mat_curId = b.cur_id
+				JOIN sys_aluno c ON a.mat_aluId = c.alu_id
+				WHERE mat_curId =".$sel_curso;				
+			$rs->FreeSql($sql);
+			 if($rs->linhas>10){
+			 	$resul['status'] = "Erro";
+			 	$resul['status'] = "Esse curso já esta com 10 alunos";  
+			 	$resul['mensagem'] = $rs->sql;  
+			 }ELSE{
+			$cod = $rs->autocod("mat_id","sys_matricula");
+			$dados["mat_id"]       	= $cod;		
+			$dados["mat_curId"]    	= $sel_curso; 		
+			$dados["mat_aluId"] 	= $sel_aluno; 							
+			$dados["mat_data"]  	= date('Y-m-d H:i:s');		
+			$dados["mat_usuId"]   	= $_SESSION['usu_cod']; 
 			
 			 
-		if(!$rs->Insere($dados,"at_equipamento")){
+		if(!$rs->Insere($dados,"sys_matricula")){
 			$resul['status'] = "OK";
-			$resul['mensagem'] = "Equipamento cadastrado com sucesso!";
+			$resul['mensagem'] = "Matricula efetuada com sucesso!";
 		} 
 		else{
 			$resul['status'] = "Erro";
@@ -582,31 +552,26 @@ $dados = array();
 			  
 		}
 		}
+		
 		echo json_encode($resul);
 		exit;
 	}
-/*---------------|FIM DO CADASTRO DE EQUIPAMENTOS |------------------*/	
+/*---------------|FIM DO CADASTRO DE MATRICULA |------------------*/	
 
-	/*--------------|FUNCAO PARA ALTERAR EQUIPAMENTOS|--------------\
-	|	Author: 	Cleber Marrara Prado							| 
-	|	E-mail: 	cleber.marrara.prado@gmail.com					|
-	|	Version:	1.0												|
-	|	Date:       31/10/2016						   				|
-	\--------------------------------------------------------------*/ 
+	/*--------------|FUNCAO PARA ALTERAR MATRICULA|--------------\
+	|										   					  |
+	\------------------------------------------------------------*/ 
 
-	if($acao == "Editar_Equipamento"){
-		$dados['eq_serial']		= trim($eq_serial);   
-		$dados['eq_desc']		= trim($eq_desc); 
-		$dados["eq_modelo"] 	= $eq_modelo;	
-		$dados['eq_statusId']	= $sel_eqstatus; 	
-		$dados['eq_valor']		= $eq_valor; 	 	
-		$whr = "eq_id=".$eq_id; 
+	if($acao == "Editar_Matricula"){
+		$dados["mat_curId"]    	= $sel_curso; 		
+		$dados["mat_aluId"] 	= $sel_aluno;	 	
+		$whr = "mat_id=".$mat_id; 
 		
-		if(!$rs->Altera($dados, "at_equipamento",$whr)){ 
+		if(!$rs->Altera($dados, "sys_matricula",$whr)){ 
 
 		$resul['status'] = "OK";
 
-		$resul['mensagem'] = "Equipamento atualizado!"; 
+		$resul['mensagem'] = "Dados atualizado!"; 
 
 		 $resul['sql'] = $rs->sql;
 			  
@@ -618,15 +583,12 @@ $dados = array();
 		echo json_encode($resul);
 		exit;
 	}	
-/*---------------|FIM DO ALTERA A EQUIPAMENTOS |------------------*/
+/*---------------|FIM DE ALTERAR MATRICULA|------------------*/	
 
-//|----------------------------------------------------------------\
-//////////////// FIM EQUIPAMENTO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-//|----------------------------------------------------------------/	
 
 
 //-------------------------------------------------------------------------------------------------------------------------
-///////// FIM FUNÇÔES DE EQUIPAMENTO  ///////////////////////////////////////////////////////////////////////////////////||
+///////// FIM FUNÇÔES DE ENSINO //////////////////////////////////////////////////////////////////////////////////////////////////////||
 //=========================================================================================================================
 	
 //---------------------------------------------------------------------------------------------------------------------------------
