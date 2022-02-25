@@ -14,8 +14,7 @@ if($rs->linhas==0):
 			<td> Nenhuma Aluno...</td>
 			<td></td>
 			<td></td>
-			<td></td>			
-			<td></td>			
+			<td></td>								
 			<td></td>			
 		</tr>";  
 	else:
