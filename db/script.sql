@@ -21,110 +21,7 @@ SET time_zone = "+00:00";
 -- Banco de dados: `app_db`
 --
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `at_equipamento`
---
-
-CREATE TABLE `at_equipamento` (
-  `eq_id` int NOT NULL,
-  `eq_desc` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `eq_tipoId` int NOT NULL,
-  `eq_empId` int NOT NULL,
-  `eq_usuEmpId` int DEFAULT NULL,
-  `eq_dpId` int DEFAULT NULL,
-  `eq_usuId` int DEFAULT NULL,
-  `eq_marcId` int DEFAULT NULL,
-  `eq_modelo` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
-  `eq_mqEmpId` int DEFAULT NULL,
-  `eq_mqId` int DEFAULT NULL,
-  `eq_statusId` int DEFAULT NULL,
-  `eq_ativo` enum('0','1') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `eq_datacad` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `eq_datades` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `eq_datadoa` date DEFAULT NULL,
-  `eq_usucad` int DEFAULT NULL,
-  `eq_usudes` int DEFAULT NULL,
-  `eq_usudoa` int DEFAULT NULL,
-  `eq_serial` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `eq_serial2` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `eq_valor` double(11,2) DEFAULT NULL,
-  `eq_descmotivo` varchar(60) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
-  `id_inst` int DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
-
---
--- Extraindo dados da tabela `at_equipamento`
---
-
-INSERT INTO `at_equipamento` (`eq_id`, `eq_desc`, `eq_tipoId`, `eq_empId`, `eq_usuEmpId`, `eq_dpId`, `eq_usuId`, `eq_marcId`, `eq_modelo`, `eq_mqEmpId`, `eq_mqId`, `eq_statusId`, `eq_ativo`, `eq_datacad`, `eq_datades`, `eq_datadoa`, `eq_usucad`, `eq_usudes`, `eq_usudoa`, `eq_serial`, `eq_serial2`, `eq_valor`, `eq_descmotivo`, `id_inst`) VALUES
-(1, 'Smartphone', 1, 1, 0, 0, 0, 1, 'Iphone 10', 0, 0, 1, '1', '2022-01-12 20:01:26', '2022-01-12 20:01:26', NULL, 1, NULL, NULL, 'e88883393993399', NULL, 10000.00, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `at_status`
---
-
-CREATE TABLE `at_status` (
-  `status_id` int NOT NULL,
-  `status_classe` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `status_desc` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `status_color` varchar(40) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
-
---
--- Extraindo dados da tabela `at_status`
---
-
-INSERT INTO `at_status` (`status_id`, `status_classe`, `status_desc`, `status_color`) VALUES
-(1, 'fas fa-grin-alt ', 'Novo', 'text-success'),
-(2, 'fas fa-frown-open ', 'Usado', 'text-warning'),
-(3, 'fas fa-dizzy', 'Descartado', 'text-danger');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `eq_marca`
---
-
-CREATE TABLE `eq_marca` (
-  `marc_id` int NOT NULL,
-  `marc_tipoId` int NOT NULL,
-  `marc_nome` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
-
---
--- Extraindo dados da tabela `eq_marca`
---
-
-INSERT INTO `eq_marca` (`marc_id`, `marc_tipoId`, `marc_nome`) VALUES
-(1, 1, 'Apple');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `eq_tipo`
---
-
-CREATE TABLE `eq_tipo` (
-  `tipo_id` int NOT NULL,
-  `tipo_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
-
---
--- Extraindo dados da tabela `eq_tipo`
---
-
-INSERT INTO `eq_tipo` (`tipo_id`, `tipo_desc`) VALUES
-(1, 'Telefonia');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `sys_aluno`
---
+-
 
 CREATE TABLE `sys_aluno` (
   `alu_id` int NOT NULL,
@@ -280,21 +177,7 @@ CREATE TABLE `sys_logado` (
 --
 
 INSERT INTO `sys_logado` (`log_id`, `log_user`, `log_classe`, `log_token`, `log_horario`, `log_expira`, `log_status`) VALUES
-(1, 'admin@infraprime.com', 1, 'e0038092843760c2b11d2b4c8456103b', '2022-01-12 19:37:36', '2022-01-12 20:37:36', '0'),
-(2, 'cmprado@infraprime.com', 3, '60f987a70778ed39f0f2b35dc20a910a', '2022-01-12 21:02:29', '2022-01-12 22:02:29', '0'),
-(3, 'admin@infraprime.com', 1, '2f83040ed5b54a97d914dc15b4d20fdc', '2022-01-13 11:35:57', '2022-01-13 12:35:57', '0'),
-(4, 'cmprado@infraprime.com', 3, '53152d5be31b6792ecdeb6ffb377a683', '2022-01-13 11:36:25', '2022-01-13 12:36:25', '0'),
-(5, 'admin@infraprime.com', 1, '185fb58dfe6a886633a4b3f9b130b718', '2022-01-13 11:36:33', '2022-01-13 12:36:33', '0'),
-(6, 'cmprado@infraprime.com', 3, '2e5dc38d3a19ffedcaedfc8c46732b02', '2022-01-13 11:36:59', '2022-01-13 12:36:59', '0'),
-(7, 'admin@infraprime.com', 1, 'd89da521d3273370bbab483f633b0b71', '2022-01-13 11:40:02', '2022-01-13 12:40:02', '1'),
-(8, 'admin@infraprime.com', 1, 'da32c4d435c5ca124ec02287dfbfaece', '2022-02-23 21:53:26', '2022-02-23 22:53:26', '1'),
-(9, 'admin@infraprime.com', 1, 'f614a4fa41a7f3acb6677a9d904f9d30', '2022-02-23 21:56:35', '2022-02-23 22:56:35', '0'),
-(10, 'admin@infraprime.com', 1, 'b49dfd10316745a469d3fcbf455a03c0', '2022-02-23 22:20:26', '2022-02-23 23:20:26', '1'),
-(11, 'admin@infraprime.com', 1, 'f9c4fda42e3353de22aecfb906398147', '2022-02-23 22:32:38', '2022-02-23 23:32:38', '0'),
-(12, 'admin@infraprime.com', 1, 'bff8f37268b1d788832da15d70f20816', '2022-02-23 22:32:43', '2022-02-23 23:32:43', '0'),
-(13, 'admin@infraprime.com', 1, 'a592c2cf586b97f0d571eaa805ed3957', '2022-02-23 22:38:16', '2022-02-23 23:38:16', '0'),
-(14, 'admin@infraprime.com', 1, '653c70924af077ed4b381441835f8d84', '2022-02-23 22:53:13', '2022-02-23 23:53:13', '0'),
-(15, 'admin@infraprime.com', 1, 'ac5997ae8da4e2633fbb44a0a09243b0', '2022-02-23 22:54:01', '2022-02-23 23:54:01', '1');
+
 
 -- --------------------------------------------------------
 
@@ -374,36 +257,11 @@ CREATE TABLE `sys_usuario` (
 
 INSERT INTO `sys_usuario` (`usu_cod`, `usu_nome`, `usu_senha`, `usu_empId`, `usu_dpId`, `usu_classeId`, `usu_email`, `usu_ativo`, `usu_online`, `usu_foto`, `usu_datacad`, `usu_datades`, `usu_chapa`, `usu_sexo`, `usu_ramal`, `usu_cel`, `usu_dashId`, `usu_mnutopId`, `usu_pagId`, `usu_usucadId`, `usu_pmail`, `usu_pchat`, `usu_pcalend`, `usu_prelatorio`) VALUES
 (1, 'Elvis Leite', '4badaee57fed5610012a296273158f5f', 2, 1, 1, 'admin@infraprime.com', '1', '0', '/images/perfil/Elv_1.png', '2022-01-12 03:00:00', '2021-02-16 03:00:00', '1103', 'M', '7445', '(11)9 4749-1646', 11, 16, 10, 1, '1', '1', '1', '1'),
-(2, 'Cleber Marrara Prado', '4297f44b13955235245b2497399d7a93', 1, 2, 3, 'cmprado@infraprime.com', '1', '0', '/images/perfil/Cle_2.png', '2022-01-12 19:44:35', '2022-01-12 19:44:35', '', 'M', '', '', 1, 7, 10, 1, '1', '1', '1', '1');
+
 
 --
 -- Índices para tabelas despejadas
 --
-
---
--- Índices para tabela `at_equipamento`
---
-ALTER TABLE `at_equipamento`
-  ADD PRIMARY KEY (`eq_id`);
-
---
--- Índices para tabela `at_status`
---
-ALTER TABLE `at_status`
-  ADD PRIMARY KEY (`status_id`);
-
---
--- Índices para tabela `eq_marca`
---
-ALTER TABLE `eq_marca`
-  ADD PRIMARY KEY (`marc_id`);
-
---
--- Índices para tabela `eq_tipo`
---
-ALTER TABLE `eq_tipo`
-  ADD PRIMARY KEY (`tipo_id`);
-
 --
 -- Índices para tabela `sys_aluno`
 --
@@ -468,31 +326,7 @@ ALTER TABLE `sys_usuario`
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
---
--- AUTO_INCREMENT de tabela `at_equipamento`
---
-ALTER TABLE `at_equipamento`
-  MODIFY `eq_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT de tabela `at_status`
---
-ALTER TABLE `at_status`
-  MODIFY `status_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de tabela `eq_marca`
---
-ALTER TABLE `eq_marca`
-  MODIFY `marc_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de tabela `eq_tipo`
---
-ALTER TABLE `eq_tipo`
-  MODIFY `tipo_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT de tabela `sys_aluno`
 --
 ALTER TABLE `sys_aluno`
