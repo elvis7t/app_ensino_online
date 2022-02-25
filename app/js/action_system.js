@@ -726,7 +726,7 @@ $(document).ready(function(){
 					// $("#Dp_cad").load("sys_tbDepartamentos.php");// atualiza a pagina com o campo inserido 
 				}
 				else {
-					$("<div></div>").addClass("alert alert-warning alert-dismissable").html('<i class="fas fa-warning"></i> Aluno menore de 16 anos <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>').appendTo("#mens");
+					$("<div></div>").addClass("alert alert-warning alert-dismissable").html('<i class="fas fa-warning"></i> Aluno menor de 16 anos <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>').appendTo("#mens");
 				}
 				$("#btn_CadAluno").html("<i class='fas fa-plus'></i> Nova");
 			}, "json");
