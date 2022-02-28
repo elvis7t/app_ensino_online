@@ -19,4 +19,4 @@ Para a configuração do ambiente favor seguir os passos abaixo:
 
 6 ° volte no phpmyadmin selecione o banco app_db cole os dados em sql e click em executar 
 
-7 ° acesse o sistema pelo link https://127.0.0.1:80/view/login.php com usuario admin@ensino.online.com senha 102030
+7 ° acesse o sistema pelo link https://127.0.0.1/view/login.php com usuario admin@ensino.online.com senha 102030
