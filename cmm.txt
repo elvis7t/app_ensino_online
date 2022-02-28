@@ -1,1 +1,1 @@
-docker-compose exec web docker-php-ext-install mysqli
+docker-compose exec app docker-php-ext-install mysqli

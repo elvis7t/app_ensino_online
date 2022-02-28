@@ -34,6 +34,7 @@ while($rs->GeraDados()){ ?>
 		<td>
 			<div class="button-group">
 				<a 	class="btn btn-primary btn-xs" data-toggle='tooltip' data-placement='bottom' title='Alterar'    a href="sys_edit_usuario.php?token=<?=$_SESSION['token']?>&acao=N&usucod=<?=$rs->fld('usu_cod');?>"><i class="fas fa-user-edit"></i></a>				
+				<a 	class="btn btn-danger btn-xs"  data-toggle='tooltip' data-placement='bottom' title='Excluir'    a href='javascript:del(<?=$rs->fld("usu_cod");?>,"exc_Usu","o item");'><i class="fa fa-trash"></i></a> 
 				<a 	class="btn btn-xs btn-info"    data-toggle='tooltip' data-placement='bottom' title='Visualizar' a href="sys_vis_usuario.php?token=<?=$_SESSION['token']?>&acao=N&usucod=<?=$rs->fld("usu_cod");?>"><i class="far fa-eye"></i></a>
 			</div>
 		</td> 

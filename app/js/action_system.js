@@ -399,7 +399,32 @@ $(document).ready(function(){
 		},
 		"json");
 	});
-/*---------------|FIM DO EDITAR -----------------------------------*/	
+/*---------------|FIM DO EDITAR -----------------------------------*/
+
+	/*---------------|FUNCAO PARA EXCLUIR USUARIO|------------------\
+	|												   				|
+	\--------------------------------------------------------------*/ 
+	
+	$(document.body).on("click",".exc_Usu", function(){
+		console.log("Click OK");
+		cod = $(this).data("reg");
+		$.post("../controller/sys_record_data.php", { 
+			acao: "excluir_usuario",
+			usu_cod: cod			
+		},
+		function(data){
+			if(data.status=="OK"){
+				$("#confirma").modal('hide');
+				$("#agurade").modal('show');
+				location.reload();
+			}
+			else{
+				alert(data.message);
+			}
+		},
+		"json");
+	});
+/*---------------|FIM DE EXLUIR USUARIO	|------------------*/
 
 	/*---------------|EDITAR DE SENHAS DOS USUÁRIOS |--------------*\
 	| 										                         |
@@ -664,6 +689,31 @@ $(document).ready(function(){
 	});
 /*---------------|FIM DE EDITAR CURSO|------------------*/
 
+	/*---------------|FUNCAO PARA EXCLUIR CURSO|--------------------\
+	|												   				|
+	\--------------------------------------------------------------*/ 
+	
+	$(document.body).on("click",".exc_Curso", function(){
+		console.log("Click OK");
+		cod = $(this).data("reg");
+		$.post("../controller/sys_record_data.php", { 
+			acao: "excluir_curso",
+			cur_id: cod			
+		},
+		function(data){
+			if(data.status=="OK"){
+				$("#confirma").modal('hide');
+				$("#agurade").modal('show');
+				location.reload();
+			}
+			else{
+				alert(data.message);
+			}
+		},
+		"json");
+	});
+/*---------------|FIM DE EXLUIR CURSO|------------------*/
+
 
 //|----------------------------------------------------------------\
 /////////////////////////// FIM CURSO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -770,6 +820,32 @@ $(document).ready(function(){
 	});
 /*---------------|FIM DE EDITAR Aluno|------------------*/
 
+	/*---------------|FUNCAO PARA EXCLUIR ALUNO|--------------------\
+	|												   				|
+	\--------------------------------------------------------------*/ 
+	
+	$(document.body).on("click",".exc_Alu", function(){
+		console.log("Click OK");
+		cod = $(this).data("reg");
+		$.post("../controller/sys_record_data.php", { 
+			acao: "excluir_aluno",
+			alu_id: cod			
+		},
+		function(data){
+			if(data.status=="OK"){
+				$("#confirma").modal('hide');
+				$("#agurade").modal('show');
+				location.reload();
+			}
+			else{
+				alert(data.message);
+			}
+		},
+		"json");
+	});
+/*---------------|FIM DE EXLUIR ALUNO	|------------------*/
+
+
 //|----------------------------------------------------------------\
 ///////////////////// FIM DE ALUNO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //|----------------------------------------------------------------/	
@@ -836,7 +912,7 @@ $(document).ready(function(){
 	}); 
 /*---------------|FIM DO CADASTRO DE MATRICULAS |------------------*/	
 
-    /*---------------|ALTERAR  EQUIPAMENTOS|-----------------------*\
+    /*-------------------|EDITAR  MATRICULA|-----------------------*\
 	|	                     						   				|
 	\--------------------------------------------------------------*/ 
 	
@@ -869,8 +945,32 @@ $(document).ready(function(){
 			},	"json");
 			
 	}); 
-/*---------------|FIM DE ALTERAR MATRICULA|------------------*/	
+/*---------------|FIM DE EDITAR MATRICULA|------------------*/	
 
+	/*---------------|FUNCAO PARA EXCLUIR MATRICULA|---------------\
+	|												   				|
+	\--------------------------------------------------------------*/ 
+	
+	$(document.body).on("click",".exc_Mat", function(){
+		console.log("Click OK");
+		cod = $(this).data("reg");
+		$.post("../controller/sys_record_data.php", { 
+			acao: "excluir_matricula",
+			mat_id: cod			
+		},
+		function(data){
+			if(data.status=="OK"){
+				$("#confirma").modal('hide');
+				$("#agurade").modal('show');
+				location.reload();
+			}
+			else{
+				alert(data.message);
+			}
+		},
+		"json");
+	});
+/*---------------|FIM DE EXLUIR MATRICULA|------------------*/
 
 
 //-------------------------------------------------------------------------------------------------------------------------

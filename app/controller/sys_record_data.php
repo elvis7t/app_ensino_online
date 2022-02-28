@@ -282,6 +282,26 @@ $dados = array();
 	}
 /*---------------|FIM DO EDITAR|-----------------------------------*/	
 
+	/*-------------|FUNCAO PARA EXCLUIR CURSO|---------------------\
+	|												   				|
+	\--------------------------------------------------------------*/ 
+	
+	if($acao == "excluir_usuario"){     	
+		if(!$rs->Exclui("sys_usuario","usu_cod=".$usu_cod)){  
+			$resul['status'] = "OK";
+			$resul['mensagem'] = "Dados Excluidos!"; 			  
+		}
+		else{
+			$resul['mensagem']	= "Ocorreu um erro..."; 
+			$resul['sql']		= $rs->sql;  
+		}	
+		echo json_encode($resul);
+		exit;
+	}
+
+/*---------------|FIM DE EXLUIR USUARIO	|------------------*/
+
+
     /*---------------|EDITAR DE SENHA DO USUÁRIO ------------------*\
 	| 																|
 	\*-------------------------------------------------------------*/
@@ -437,6 +457,26 @@ $dados = array();
 /*---------------|FIM DE EDITAR CURSO|------------------*/
 
 
+	/*-------------|FUNCAO PARA EXCLUIR CURSO|---------------------\
+	|												   				|
+	\--------------------------------------------------------------*/ 
+	
+	if($acao == "excluir_curso"){     	
+		if(!$rs->Exclui("sys_curso","cur_id=".$cur_id)){  
+			$resul['status'] = "OK";
+			$resul['mensagem'] = "Dados Excluidos!"; 			  
+		}
+		else{
+			$resul['mensagem']	= "Ocorreu um erro..."; 
+			$resul['sql']		= $rs->sql;  
+		}	
+		echo json_encode($resul);
+		exit;
+	}
+
+/*---------------|FIM DE EXLUIR CURSO|------------------*/
+
+
 //|----------------------------------------------------------------\
 /////////////////////////// FIM CURSO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //|----------------------------------------------------------------/
@@ -446,7 +486,7 @@ $dados = array();
 //ALUNO//////////////////////////////////////////////////////////////////////////////////////////
 //============================================================================================================
 
-	/*---------------|FUNCAO PARA CADASTRO DE Aluno|----------------\
+	/*---------------|FUNCAO PARA CADASTRO DE ALUNO|----------------\
 	|												   				|
 	\--------------------------------------------------------------*/ 	
 	
@@ -509,7 +549,27 @@ $dados = array();
 		echo json_encode($resul);
 		exit;
 	}
-/*---------------|FIM DE EDITAR Aluno|------------------*/
+/*---------------|FIM DE EDITAR ALUNO|------------------*/
+
+	/*--------------|FUNCAO PARA EXCLUIR ALUNO|---------------------\
+	|												   				|
+	\--------------------------------------------------------------*/ 
+	
+	if($acao == "excluir_aluno"){     	
+		if(!$rs->Exclui("sys_aluno","alu_id=".$alu_id)){  
+			$resul['status'] = "OK";
+			$resul['mensagem'] = "Dados Excluidos!"; 			  
+		}
+		else{
+			$resul['mensagem']	= "Ocorreu um erro..."; 
+			$resul['sql']		= $rs->sql;  
+		}	
+		echo json_encode($resul);
+		exit;
+	}
+
+/*---------------|FIM DE EXLUIR ALUNO|------------------*/
+
 
 //|----------------------------------------------------------------\
 //////////////// FIM TIPO DE ALUNO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -558,7 +618,7 @@ $dados = array();
 	}
 /*---------------|FIM DO CADASTRO DE MATRICULA |------------------*/	
 
-	/*--------------|FUNCAO PARA ALTERAR MATRICULA|--------------\
+	/*--------------|FUNCAO PARA EDITAR MATRICULA|--------------\
 	|										   					  |
 	\------------------------------------------------------------*/ 
 
@@ -583,7 +643,27 @@ $dados = array();
 		echo json_encode($resul);
 		exit;
 	}	
-/*---------------|FIM DE ALTERAR MATRICULA|------------------*/	
+/*---------------|FIM DE EDITAR MATRICULA|------------------*/	
+
+
+	/*--------------|FUNCAO PARA EXCLUIR MATRICULA|-----------------\
+	|												   				|
+	\--------------------------------------------------------------*/ 
+	
+	if($acao == "excluir_matricula"){     	
+		if(!$rs->Exclui("sys_matricula","mat_id=".$mat_id)){  
+			$resul['status'] = "OK";
+			$resul['mensagem'] = "Dados Excluidos!"; 			  
+		}
+		else{
+			$resul['mensagem']	= "Ocorreu um erro..."; 
+			$resul['sql']		= $rs->sql;  
+		}	
+		echo json_encode($resul);
+		exit;
+	}
+
+/*---------------|FIM DE EXLUIR MATRICULA|------------------*/
 
 
 
