@@ -22,5 +22,5 @@ session_destroy();
 require_once("../model/recordset.php");
 $rslogout = new recordset();
 $rslogout->FreeSql("UPDATE sys_logado SET log_status='0' WHERE log_user = '" . $user . "' AND log_token='" . $token . "'");
-header("location:http://192.168.5.248:86/view/login.php");
+header("location:http://192.168.5.248:85/view/login.php");
 exit;

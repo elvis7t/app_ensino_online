@@ -93,6 +93,12 @@ $fn = new functions();
 <script src="<?=$hosted;?>/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <!-- AdminLTE App -->
 <script src="<?=$hosted;?>/assets/dist/js/adminlte.min.js"></script>
+<!--Chama o java script para excluir -->
+<script src="<?=$hosted;?>/js/functions.js"></script> 
+<!--Chama o java script -->
+<script src="<?=$hosted;?>/js/action_system.js"></script>
+<!-- Validation --> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
 <!-- page script -->
 <script>
   $(function () {
