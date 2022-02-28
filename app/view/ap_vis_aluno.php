@@ -123,9 +123,9 @@ $fn =  new functions();
 					<!-- /.card-body -->
 					
 					<div class="card-footer">							
-                        <a href="javascript:history.go(-1);" class="btn btn-sm btn-secondary"><i class="fas fa-hand-point-left"></i> Voltar</a>                        
-                        <a class='btn btn-sm btn-info' data-toggle='tooltip' data-placement='bottom' title='Editar Aluno' a href="ap_edit_aluno.php?token=<?=$_SESSION['token']?>&acao=N&alunoid=<?=$alunoid;?>"><i class="fas fa-edit"></i>Editar</a> 															
+						<a class='btn btn-sm btn-info' data-toggle='tooltip' data-placement='bottom' title='Editar Aluno' a href="ap_edit_aluno.php?token=<?=$_SESSION['token']?>&acao=N&alunoid=<?=$alunoid;?>"><i class="fas fa-edit"></i>Editar</a> 															
                         <a class='btn btn-sm btn-info' data-toggle='tooltip' data-placement='bottom' title='Novo Aluno' href="ap_cad_aluno.php?token=<?=$_SESSION['token']?>"><i class="fa fa-plus"></i> Novo</a>			  					
+                        <a href="javascript:history.go(-1);" class="btn btn-sm btn-secondary"><i class="fas fa-hand-point-left"></i> Voltar</a>                        
                     </div>
 				</div>
 				<!-- /.row -->			

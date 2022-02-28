@@ -5,7 +5,7 @@
     <?php
     date_default_timezone_set('America/Sao_Paulo');
     error_reporting(E_ALL & E_NOTICE & E_WARNING);
-    $hosted = "http://192.168.5.248:85";
+    $hosted = "http://127.0.0.1:85";
     session_start();
     ?>
     <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />  

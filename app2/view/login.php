@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cursos | Online  2</title>
+    <title>Cursos | Online1</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"

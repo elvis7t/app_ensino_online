@@ -132,9 +132,9 @@ $fn = new functions();
 					<!-- /.card-body -->
 					
 					<div class="card-footer">													
-						<a href="javascript:history.go(-1);" class="btn btn-sm btn-secondary"><i class="fas fa-hand-point-left"></i> Voltar</a>
-                        <a class='btn btn-sm btn-info' data-toggle='tooltip' data-placement='bottom' title='Editar Curso' a href="ap_edit_curso.php?token=<?=$_SESSION['token']?>&acao=N&cursoid=<?=$cursoid;?>"><i class="fas fa-edit"></i>Editar</a> 															
+						<a class='btn btn-sm btn-info' data-toggle='tooltip' data-placement='bottom' title='Editar Curso' a href="ap_edit_curso.php?token=<?=$_SESSION['token']?>&acao=N&cursoid=<?=$cursoid;?>"><i class="fas fa-edit"></i>Editar</a> 															
                         <a class='btn btn-sm btn-info' data-toggle='tooltip' data-placement='bottom' title='Novo Curso' href="ap_cad_curso.php?token=<?=$_SESSION['token']?>"><i class="fa fa-plus"></i> Novo</a>			  					
+						<a href="javascript:history.go(-1);" class="btn btn-sm btn-secondary"><i class="fas fa-hand-point-left"></i> Voltar</a>
 					</div>				  					
 				</div>
 				<!-- /.row -->			
@@ -177,10 +177,12 @@ $fn = new functions();
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="<?=$hosted;?>/assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <script>
-  $(function () {
+$(function () {
     // Summernote
-    $('.textarea').summernote()
-  });
-  </script>
+    $('.textarea').summernote({
+		airMode: true
+	});
+  })
+</script>
 </body>
 </html>

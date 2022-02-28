@@ -13,7 +13,7 @@ if($rsvld->linhas <> 1){ // Se n�o houverem credenciais
 	$arr["status"] 		= "NO";
 	$arr["titulo"]		= "Infra Prime - AVISO";
 	$arr["mensagem"]	= "Fa�a Login para acessar esse Conte�do";
-	header("location: http://localhost:85/view/login.php");
+	header("location: http://127.0.0.1:85/view/login.php");
 }
 
 unset($rsvld);

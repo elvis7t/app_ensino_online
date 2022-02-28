@@ -200,17 +200,5 @@ $fn = new functions();
 <script src="<?=$hosted;?>/js/jmask.js"></script>
 <script src="<?=$hosted;?>/assets/plugins/moment/moment.min.js"></script>
 <script src="<?=$hosted;?>/assets/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
-<script>
-  $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })   
-
-  })
-</script>
 </body>
 </html>

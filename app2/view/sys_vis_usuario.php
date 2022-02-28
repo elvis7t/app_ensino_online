@@ -377,15 +377,5 @@ $emp_tel = $rs->fld("emp_tel");
 <script src="<?=$hosted;?>/js/action_system.js"></script>  
 <!-- Validation --> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
-<script>
-  $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
-</script>
 </body>
 </html>
