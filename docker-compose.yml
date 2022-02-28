@@ -1,5 +1,18 @@
 version: '3.7'
 services:
+  nginx:
+      image: nginx:1.21
+      ports:
+          - 88:80
+          - 443:443
+      volumes:
+          - ./nginx/html/:/usr/share/html:ro
+          - ./nginx/nginx:/etc/nginx
+          - ./nginx/cert:/cert
+
+      networks:
+      - curso
+      
   web:
     container_name: php-container
     image: php:7.4-apache
@@ -10,6 +23,16 @@ services:
       - ./app:/var/www/html       
     networks:
       - curso
+  app:
+    container_name: php-container2
+    image: php:7.4-apache
+    restart: always
+    ports:
+      - 86:80
+    volumes:
+      - ./app2:/var/www/html       
+    networks:
+      - curso    
 
   mysql:    
     image: 'mysql/mysql-server:8.0'

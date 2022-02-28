@@ -23,7 +23,7 @@ $(document).ready(function () {
 					$("#aguarde").modal("show");
 					$("<div></div>").addClass("alert alert-success alert-dismissable").html(data.mensagem + '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>').appendTo("#ers").fadeIn("slow");
 					console.log(data.mensagem);
-					$(location).attr('href', 'http://localhost:85/view/index.php?token=' + data.token);
+					$(location).attr('href', 'http://192.168.5.248:85/view/index.php?token=' + data.token);
 				}
 				else {
 					$("<div></div>").addClass("alert alert-danger alert-dismissable").html(data.mensagem + '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>').appendTo("#ers").fadeIn("slow");

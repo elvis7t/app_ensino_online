@@ -5,13 +5,13 @@
     <?php
     date_default_timezone_set('America/Sao_Paulo');
     error_reporting(E_ALL & E_NOTICE & E_WARNING);
-    $hosted = "http://localhost:85";
+    $hosted = "http://192.168.5.248:85";
     session_start();
     ?>
     <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cursos | Online</title>
+    <title>Cursos 1 Online</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
