@@ -10,8 +10,10 @@ git clone https://github.com/elvis7t/app_ensino_online.git
 1 ° Na pasta app_enssino_online, rodar o comando docker-compose up -d
 
 2 ° Rodar os comandos 
-    docker-compose exec app docker-php-ext-install mysqli
-    docker-compose exec app2 docker-php-ext-install mysqli
+
+docker-compose exec app docker-php-ext-install mysqli
+
+docker-compose exec app2 docker-php-ext-install mysqli
     
 3 ° Reinicie os containers
 
