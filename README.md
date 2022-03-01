@@ -4,7 +4,8 @@ Teste de php
 Para a configuração do ambiente favor seguir os passos abaixo:
 
 1 ° Clone o repositorio
-     git clone https://github.com/elvis7t/app_ensino_online.git  
+
+git clone https://github.com/elvis7t/app_ensino_online.git  
 
 1 ° Na pasta app_enssino_online, rodar o comando docker-compose up -d
 
