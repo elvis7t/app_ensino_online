@@ -1,5 +1,6 @@
 # app_ensino_online
- Teste de php
+Teste de php
+
 Para a configuração do ambiente favor seguir os passos abaixo:
 
 1 ° Rodar o comando docker-compose up -d
