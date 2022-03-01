@@ -10,7 +10,7 @@ Para a configuração do ambiente favor seguir os passos abaixo:
     
 3 ° reinicie os containers
 
-4 ° acesse o phpmyadmin http://127.0.0.1:8080/ logue com 
+4 ° acesse o phpmyadmin http://localhost:8080/ logue com 
     Servidor:      mysql,
     Utilizador :   db_acesso
     Palavra-passe: db_user_pass
