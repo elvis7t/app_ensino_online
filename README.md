@@ -17,7 +17,7 @@ nginx/cert 127.0.0.1.key
 
 3 ° Na pasta app_enssino_online, rodar o comando docker-compose up -d
 
-4 ° Rodar os comando: bash ./init-mysql.sh
+4 ° Rodar o comando: bash ./init-mysql.sh
 
 5 ° Acesse o sistema pelo link https://127.0.0.1/view/login.php com usuario admin@ensino.online.com senha 102030
 
