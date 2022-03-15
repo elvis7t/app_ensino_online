@@ -1,86 +1,59 @@
-version: '3.7'
+version: '3'
 services:
   nginx:
-      image: nginx:1.21
-      ports:
-          - 88:80
-          - 443:443
-      volumes:
-          - ./nginx/html/:/usr/share/html:ro
-          - ./nginx/nginx:/etc/nginx
-          - ./nginx/cert:/cert
-
-      networks:
-      - curso
-      
-  app:
-    container_name: php-container
-    build:
-      context: ./db
-      dockerfile: DOCKERFILE
-    restart: always
+    container_name: app-nginx
+    image: elvis7t/nginx_app:1.0
     ports:
-      - 85:80
-    volumes:
-      - ./app:/var/www/html       
+        - 88:80
+        - 443:443    
     networks:
-      - curso
+      - app
+  
+  app:
+    container_name: app-container
+    image: elvis7t/app_curso_online:1.0
+    ports:
+      - '85:80'
+    networks:
+      -  app
   
   app2:
-    container_name: php-container2
-    build:  
-      context: ./db
-      dockerfile: DOCKERFILE
-    restart: always
+    container_name: app2-container
+    image: elvis7t/app_curso_online:1.2
     ports:
-      - 86:80
-    volumes:
-      - ./app2:/var/www/html       
+      - '86:80'
     networks:
-      - curso    
+      -  app
 
   mysql:    
     container_name: mysql-container
-    image: mysql:8.0
-    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    image: elvis7t/mysql:1.1
     restart: always    
-    environment:      
-      MYSQL_ROOT_PASSWORD: root     
-      MYSQL_HOST: localhost
-      MYSQL_DATABASE: app_db
-      MYSQL_USER: db_user
-      MYSQL_PASSWORD: db_user_pass
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"                            
     ports: 
       - '3306:3306'
-
-    volumes:
-      - './db/data:/var/lib/mysql'   
-      - './db/my.cnf:/etc/mysql/conf.d/my.cnf'
-      - './db/sql:/docker-entrypoint-initdb.d'
-
     networks:
-      - curso
-  
+      - app  
 
   phpmyadmin:
-      image: phpmyadmin
-      restart: always    
-      links:
-      - mysql    
-      environment:
-        PMA_HOST: mysql
-        PMA_PORT: 3306
-        PMA_ARBITRARY: 1
-      ports:
-        - "8080:80"      
-      depends_on:
-        - mysql
-      networks:  
-        - curso
-      
-networks:
-  curso:
-    driver: "bridge"        
+    container_name: phpmyadmin-container
+    image: phpmyadmin
+    restart: always    
+    links:
+    - mysql    
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - "8080:80"      
+    depends_on:
+      - mysql
+    networks:  
+        - app
 
-    
+networks:
+  app:
+    driver: "bridge"
+
+
+  
