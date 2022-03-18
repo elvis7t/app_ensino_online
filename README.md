@@ -61,20 +61,15 @@ Usar um ambiente com Docker e disponibilizar um Dockerfile ou docker-compose.yml
 Não é obrigatório, mas seria interessante se você:
 Programar em inglês
 
-Para a configuração do ambiente favor seguir os passos abaixo:
+Para a acessar a apicação favor seguir os passos abaixo:
 
 1 ° Clone o repositorio
 
 git clone https://github.com/elvis7t/app_ensino_online.git  
 
-2 ° "Mudar o ip igual da sua maquina"  Alterar os arquivos: 
-nginx/conf.d/ssl.conf 
-ngix/nginx.conf 
-nginx/cert 127.0.0.1.crt
-nginx/cert 127.0.0.1.key
 
-3 ° Na pasta app_enssino_online, rodar o comando docker-compose up -d
+2 ° Na pasta app_enssino_online, rodar o comando docker-compose up -d
 
 
-4 ° Acesse o sistema pelo link https://localhost/view/login.php com usuario admin@ensino.online.com senha 102030
+3 ° Acesse o sistema pelo link http://localhost:85/view/login.php com usuario admin@ensino.online.com senha 102030
 
