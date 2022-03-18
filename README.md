@@ -1,6 +1,6 @@
 # app_ensino_online
 
-Resposta do Teste Proatico https://github.com/leonardo-soustruznik-match/teste-pratico-dev-php-pleno
+Resposta do Teste prático https://github.com/leonardo-soustruznik-match/teste-pratico-dev-php-pleno
 
 Cenário
 Criação de uma plataforma para ensino online. Nesta plataforma, os usuários terão a possibilidade de cadastrar cursos e realizar a matrícula de alunos. Esta aplicação será construída em React, por isso é necessário um backend headless.
