@@ -61,7 +61,7 @@ Usar um ambiente com Docker e disponibilizar um Dockerfile ou docker-compose.yml
 Não é obrigatório, mas seria interessante se você:
 Programar em inglês
 
-## Para a acessar a aplicação favor seguir os passos abaixo:
+## Para acessar a aplicação favor seguir os passos abaixo:
 
 1 ° Clone o repositorio
 
